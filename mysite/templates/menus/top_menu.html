@@ -1,0 +1,19 @@
+{% load menus_tags wagtailcore_tags %}
+
+
+  <ul class="navbar-nav">
+
+    {% for menuitem in menuitems %}
+    
+        <li class="nav-item">
+            {% if menuitem.show_dropdown %}
+                <a href="{% pageurl menuitem %}" class="dropdown-toggle nav-link">{{ menuitem.title | slugify }}</a>
+            {% top_menu_children parent=menuitem %}
+            {% else %}
+                <a href="{% pageurl menuitem %}" class="nav-link">{{ menuitem.title | slugify }}</a>
+            {% endif %}
+        </li> 
+
+    {% endfor %} 
+
+    </ul>

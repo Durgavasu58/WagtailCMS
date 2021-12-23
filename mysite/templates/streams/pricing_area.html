@@ -1,0 +1,37 @@
+<!-- Start Pricing Area -->
+        <div class="pricing-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h2>{{ self.title }}</h2>
+                    <p>{{ self.description }}</p>
+                </div>
+
+                <div class="row justify-content-center">
+                {% for pr in self.card %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        
+                        <div class="pricing-box">
+                            <div class="pricing-header">
+                                <h3>{{ pr.card_title }}</h3>
+                                <span class="price">{{ pr.price }}</span>
+                            </div>
+                            <ul class="features-list">
+                                {{ pr.list }}
+                            </ul>
+
+                        {% if card.button_url %}
+                            <a href="{{ card.button_url }}" class="default-btn app-color">{{ pr.button_text }}<i class="fas fa-chevron-right"></i></a>
+                        {% else %}
+                            <a href="{{ card.button_page }}" class="default-btn app-color">{{ pr.button_text }}<i class="fas fa-chevron-right"></i></a>
+                        {% endif %}
+
+
+
+                        </div>
+                       
+                    </div>
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- End Pricing Area -->

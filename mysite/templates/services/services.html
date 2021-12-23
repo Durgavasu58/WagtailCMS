@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}page-service{% endblock %}
+{% load static %}
+
+{% block content %}
+
+        <!-- Start Page Title Area -->
+        {% comment %} <div class="page-title-area style-four bg1">
+            <div class="container">
+                <div class="page-title-content text-start">
+                    <h2>Services Details</h2>
+                    <ul>
+                        <li><a href="home-startup.html">Home</a></li>
+                        <li>Services Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div> {% endcomment %}
+        <!-- End Page Title Area -->
+
+        
+
+
+    <div>
+        {% include_block page.content %}
+    </div>
+
+
+        
+
+{% endblock %}

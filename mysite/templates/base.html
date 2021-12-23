@@ -1,0 +1,218 @@
+
+{% load i18n static wagtailcore_tags wagtailuserbar menus_tags %}
+
+{% comment %} {% get_menu "main" as navigation %} {% endcomment %}
+
+
+
+{% comment %} {% for language_code, language_name in LANGUAGES %}
+
+    {% get_language_info for language_code as lang %}
+
+    {% language language_code %}
+        <a href="{% pageurl page.localized %}" rel="alternate" hreflang="{{ language_code }}">
+            {{ lang.name_local }}
+        </a>
+    {% endlanguage %}
+
+{% endfor %}
+  {% endcomment %}
+
+
+<!doctype html>
+<html  lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Links of CSS files -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/odometer.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/rangeSlider.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/showMoreItems-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+
+        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+
+
+        
+            {% include "menus/navbar.html" with parent=site_root calling_page=self %}
+        
+
+
+        {% block content %}
+        
+        {% endblock content %}
+
+        <!-- Start Footer Area -->
+        <footer class="footer-area app-footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-xl-6 col-lg-4 col-md-12">
+                            <a href="home-app.html" class="logo">
+                                <img src="{% static 'img/logo-white-app.png' %}" alt="image">
+                            </a>
+                        </div>
+                        
+                        <div class="col-xl-6 col-lg-8 col-md-12">
+                            <div class="content d-flex justify-content-between align-items-center">
+                                <h3>Bring Your Project To Startup Today</h3>
+                                <a href="contact-1.html" class="default-btn app-color">Contact Us <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h3>Contact Details</h3>
+
+                            <ul class="footer-contact">
+                                <li><i class="fas fa-map-marker-alt"></i> 162 5th Ave, New York, NY 1010, United States</li>
+                                <li><i class="far fa-envelope"></i> <a href="mailto:hello@noke.com">hello@noke.com</a></li>
+                                <li><i class="fas fa-phone-volume"></i> <a href="tel:+44457895789">(+44) - 45789 - 5789</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget pl-4">
+                            <h3>Useful Links</h3>
+
+                            <ul class="info-links">
+                                <li><a href="home-startup.html">Home</a></li>
+                                <li><a href="about-simple.html">About</a></li>
+                                <li><a href="services-1.html">Services</a></li>
+                                <li><a href="contact-1.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h3>Company</h3>
+
+                            <ul class="info-links">
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="blog-1.html">News</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h3>Subscribe</h3>
+                            <p>Subscribe to receive latest news and freebies</p>
+                            <form class="newsletter-form" data-toggle="validator">
+                                <input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL" required autocomplete="off">
+                                <button type="submit"><i class="far fa-paper-plane"></i></button>
+                                <div id="validator-newsletter" class="form-result"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright-area">
+                <div class="container">
+                    <p>Copyright @2021 Noke is Proudly Crafted by <a href="https://envytheme.com/" target="_blank">EnvyTheme</a></p>
+                </div>
+            </div>
+
+            <div class="shape14"><img src="{% static 'img/shape/shape14.png' %}" alt="image"></div>
+        </footer>
+        <!-- End Footer Area -->
+
+        <div class="go-top app-color"><i class="fas fa-chevron-up"></i></div>
+
+        <!-- Start QuickView Modal Area -->
+        <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="products-image">
+                                <img src="{% static 'img/products/products-img13.jpg' %}" alt="image">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="products-content">
+                                <h3><a href="products-details.html">Ergonomic Desk Sofa</a></h3>
+                                <div class="price">
+                                    <span class="old-price">$99.00</span>
+                                    <span class="new-price">$69.00</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="products-add-to-cart">
+                                    <div class="quantities">
+                                        <span class="sub-title">Qty:</span>
+                                        <div class="input-counter">
+                                            <span class="minus-btn"><i class='fas fa-minus'></i></span>
+                                            <input type="text" value="1">
+                                            <span class="plus-btn"><i class='fas fa-plus'></i></span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="default-btn shop-color">Add to Cart <i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <ul class="social-share">
+                                    <li><span>Share:</span></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End QuickView Modal Area -->
+
+        <!-- Links of JS files -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/appear.min.js' %}"></script>
+        <script src="{% static 'js/odometer.min.js' %}"></script>
+        <script src="{% static 'js/parallax.min.js' %}"></script>
+        <script src="{% static 'js/smooth-scroll.js' %}"></script>
+        <script src="{% static 'js/rangeSlider.min.js' %}"></script>
+        <script src="{% static 'js/showMoreItems.min.js' %}"></script>
+        <script src="{% static 'js/mixitup.min.js' %}"></script>
+        <script src="{% static 'js/meanmenu.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/form-validator.min.js' %}"></script>
+        <script src="{% static 'js/contact-form-script.js' %}"></script>
+        <script src="{% static 'js/ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

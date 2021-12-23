@@ -1,0 +1,33 @@
+{% load menus_tags wagtailcore_tags %}
+
+
+ 
+<ul class="dropdown-menu">
+  {% for child in menuitems_children %}
+      {% if child.has_dropdown %}
+
+            <li class="nav-item"><a href="{% pageurl child %}" class="nav-link">
+              <i class="fas fa-chevron-right"></i>
+              {% for i in levelstr %}&nbsp{% endfor %}
+              
+              {{ child.title | slugify }}
+              
+            </a>
+            {% top_menu_children parent=child sub=True level=level %}
+          
+          </li>
+
+      {% else %}
+
+        <li class="nav-item">
+                <a href="{% pageurl child %}" class="nav-link">
+                {% for i in levelstr %}&nbsp{% endfor %}
+                {{ child.title | slugify }}
+              </a>
+        </li>
+
+      {% endif %}   
+
+  {% endfor %}
+  
+</ul>

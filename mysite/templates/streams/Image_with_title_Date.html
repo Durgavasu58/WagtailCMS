@@ -1,0 +1,38 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+  <!-- Start Blog Details Area -->
+        <section class="blog-details-area ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-12">
+                        <div >
+                            {{ self.title }}
+                        <div>
+                        {% for blog in self.blog %}
+                        <div class="blog-details-desc">
+                                <div class="article-image">
+                                    {% image blog.image scale-100 as photo %}
+                                    <img src="{{ photo.url }}" alt="image">
+                                </div>
+                                <p>{{ blog.description }}</p>                                
+                                <div class="article-content">
+                                
+                                    <div class="entry-meta">
+                                        <ul>
+                                            {% if blog.name %}
+                                                <li><i class="far fa-user-circle"></i> <a href="blog-1.html">{{ blog.name }}</a></li>
+                                            {% endif %}                                                
+                                            <li><i class="far fa-calendar-alt"></i> {{ blog.date }}</li>
+                                        </ul>
+                                    </div>
+                                </div>                            
+                         </div>                    
+                     {% endfor %} 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Blog Details Area -->
+                         

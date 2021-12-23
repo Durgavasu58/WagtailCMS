@@ -1,0 +1,67 @@
+{% load wagtailimages_tags %}
+
+<!-- Start Testimonials Area -->
+        <div class="testimonials-area pb-100">
+            <div class="container">
+                <div class="testimonials-inner ptb-100 bg-app-image">
+                    <div class="testimonials-slides owl-carousel owl-theme">
+                    {% for slide in self.carousel %}
+                        <div class="testimonials-item">
+                            <i class="icon flaticon-quotation"></i>
+                    
+                            <p>{{ slide.description }}</p>
+                            <div class="info d-flex align-items-center justify-content-center">
+                                <div class="title">
+                                {% image slide.image fill-80x80 as photo %}                                
+                                    <img src="{{ photo.url }}" alt="image">
+                                    <h3>{{ slide.name }}</h3>
+                                    <span>{{ slide.role }}</span>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End Testimonials Area -->
+
+        
+
+
+        <!-- Start Testimonials Area -->
+ {% comment %} <div class="testimonials-area pb-100">
+            <div class="container">
+                <div class="testimonials-inner ptb-100 bg-app-image">
+                    <div class="testimonials-slides owl-carousel owl-theme">
+                    
+                        <div class="testimonials-item">
+                            <i class="icon flaticon-quotation"></i>
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Qui ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas accumsan lacus vel facilisis.”</p>
+                            <div class="info d-flex align-items-center justify-content-center">
+                                <img src="{% static 'img/user/user1.jpg' %}" alt="image">
+                                <div class="title">
+                                    <h3>Allan Morris</h3>
+                                    <span>Director</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonials-item">
+                            <i class="icon flaticon-quotation"></i>
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Qui ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas accumsan lacus vel facilisis.”</p>
+                            <div class="info d-flex align-items-center justify-content-center">
+                                <img src="{% static 'img/user/user2.jpg' %}" alt="image">
+                                <div class="title">
+                                    <h3>Sarah Taylor</h3>
+                                    <span>CEO</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>  {% endcomment %}

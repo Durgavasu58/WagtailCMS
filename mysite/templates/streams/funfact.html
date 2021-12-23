@@ -1,0 +1,25 @@
+ <!-- Start Funfacts Area -->
+        <div class="funfacts-area pb-100">
+            <div class="container">
+                <div class="funfacts-inner pt-100 pb-70 bg-app-image">
+                    <div class="row justify-content-center">
+
+                        {% for area in self.fact %}
+
+                            <div class="col-lg-3 col-sm-6 col-md-3 col-6">
+                                <div class="single-funfacts-box without-bg-color">
+
+                                    <h3><span class="odometer" data-count="{{ area.value }}">00</span><span class="sign">{{ area.letter }}</span></h3>
+
+                                    <span class="sub-title">{{ area.title}}</span>
+                                    
+                                </div>
+                            </div>
+
+                         {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End Funfacts Area -->

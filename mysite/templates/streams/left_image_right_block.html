@@ -1,0 +1,48 @@
+{% load wagtailimages_tags %}
+
+
+    <!-- Start App Download Area -->
+        <div class="app-download-area pt-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="app-download-image">
+
+                        {% image self.image scale-100 as photo %}
+                            <img src="{{ photo.url }}" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="app-download-content">
+                            <span class="sub-title">{{ self.title }}</span>
+                            <h2>{{ self.heading }}</h2>
+                            <p>{{ self.description }}</p>
+                            <div class="btn-box">
+                        {% for app in self.apps %}
+                            
+                            {% if app.button_url %}
+                                {% image app.image scale-100 as photo %}
+                                <a href="{{ app.button_url }}" class="store-btn">
+                                    <img src="{{ photo.url }}" alt="image">
+                                    Download on
+                                    <span>App Store</span>
+                                </a>
+                            {% else %}
+                                {% image app.image scale-100 as photo %}
+                                <a href="{{ app.button_page }}" class="store-btn">
+                                    <img src="{{ photo.url }}" alt="image">
+                                    Download on
+                                    <span>App Store</span>
+                                </a>
+                            {% endif %}
+                        
+                        {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End App Download Area -->
